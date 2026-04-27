@@ -55,7 +55,7 @@
                 "infosubmitted": false
             }
         ],
-        "progresspercentage": "0%",
+        "progresspercentage": "0%"
     }
 }}
 {{#novisibleactivities}}
@@ -120,12 +120,12 @@
             <div class="progressEventInfo" data-inforef="{{instanceid}}-{{userid}}-{{activityid}}" style="display: none">
                 {{#activitylink}}
                     <a href="{{activitylink}}" {{#activityonclick}} onclick="{{activityonclick}}" {{/activityonclick}}>
-                        <img src="{{activityicon}}" class="moduleIcon" alt="" role="presentation">
+                        <img src="{{activityicon}}" class="moduleIcon" alt="">
                         {{{activityname}}}
                     </a>
                 {{/activitylink}}
                 {{^activitylink}}
-                    <img src="{{activityicon}}" class="moduleIcon" alt="" role="presentation">
+                    <img src="{{activityicon}}" class="moduleIcon" alt="">
                     {{{activityname}}}
                 {{/activitylink}}
                 <br>

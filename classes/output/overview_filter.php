@@ -161,14 +161,20 @@ class overview_filter extends \core\output\datafilter {
 
     /**
      * Export template data.
+     *
      * @param renderer_base $output Used to do a final render of any components that need to be rendered for export.
-     * @return stdClass|array
+     * @return stdClass
      */
     public function export_for_template(renderer_base $output): stdClass {
+        // Convert stdClass objects to arrays to avoid Mustache rendering errors.
+        // This prevents "Object of class stdClass could not be converted to string" errors.
+        $initialfilters = json_decode(json_encode($this->initialfilters), true);
+
         return (object) [
             'tableregionid' => $this->tableregionid,
             'courseid' => $this->context->instanceid,
-            'initialfilters' => json_encode($this->initialfilters),
+            'initialfilters' => $initialfilters,
+            'initialfiltersjson' => json_encode($initialfilters),
             'filtertypes' => $this->get_filtertypes(),
             'rownumber' => 1,
         ];

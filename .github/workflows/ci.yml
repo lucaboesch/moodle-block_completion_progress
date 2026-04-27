@@ -110,6 +110,10 @@ jobs:
       if: ${{ !cancelled() }}
       run: moodle-plugin-ci savepoints
 
+    - name: Mustache Lint
+      if: ${{ !cancelled() }}
+      run: moodle-plugin-ci mustache
+
     - name: Run grunt
       if: ${{ !cancelled() }}
       run: moodle-plugin-ci grunt --max-lint-warnings 0

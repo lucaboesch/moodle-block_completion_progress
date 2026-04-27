@@ -34,7 +34,22 @@
                 "jointype": 1,
                 "value": 5
             }
-        ],
+        ]
+    },
+    "initialfiltersjson": {
+        "jointype": 2,
+        "filters": [
+            {
+                "name": "blockinstanceid",
+                "jointype": 1,
+                "value": 181
+            },
+            {
+                "name": "roles",
+                "jointype": 1,
+                "value": 5
+            }
+        ]
     },
     "filtertypes": [],
     "rownumber": 1
@@ -47,6 +62,6 @@
 
 {{#js}}
     require(['block_completion_progress/overview_filter'], function(Filter) {
-        Filter.init({{#quote}}core-filter-{{uniqid}}{{/quote}}, {{{initialfilters}}});
+        Filter.init({{#quote}}core-filter-{{uniqid}}{{/quote}}, {{{initialfiltersjson}}});
     });
 {{/js}}
